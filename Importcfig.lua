@@ -4,7 +4,7 @@ local main = Username
 
 wait(0.3)
 if _G.cfig == "Frag" then
-    url = "https://raw.githubusercontent.com/ImSoBad123/cfig-/main/frag"
+    url = "https://raw.githubusercontent.com/ImSoBad123/cfig-/main/frag.json"
 end
 
 local HttpService = game:GetService("HttpService")
