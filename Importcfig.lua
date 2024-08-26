@@ -23,7 +23,7 @@ if url then
     
     -- Cấu trúc thư mục mới
     local folder = "True_W_azure_V2_Beta/ConfigMain"
-    local filename = playerName  -- Sử dụng tên người chơi cho tên file
+    local filename = playerName . . ".json" -- Sử dụng tên người chơi cho tên file
     
     -- Đảm bảo rằng thư mục tồn tại
     if not isfolder(folder) then
