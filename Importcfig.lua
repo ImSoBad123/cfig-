@@ -1,6 +1,7 @@
 print("Loading Config: " .. _G.cfig)
+
 local url
-local main = Username
+local main = Username or "DefaultUsername"  -- Sử dụng giá trị mặc định nếu Username là nil
 
 wait(0.3)
 if _G.cfig == "Frag" then
@@ -11,30 +12,30 @@ local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 
 local player = Players.LocalPlayer
-local playerName = player.Name  -- Extract player's name as a string
+local playerName = player.Name  -- Lấy tên của người chơi
 
--- Check if the URL is set before proceeding
+-- Kiểm tra xem URL đã được thiết lập chưa
 if url then
     local response = game:HttpGet(url)
     
     -- Decode JSON response into a Lua table
     local config = HttpService:JSONDecode(response)
     
-    -- New folder structure
+    -- Cấu trúc thư mục mới
     local folder = "True_W_azure_V2_Beta/ConfigMain"
-    local filename = playerName  -- Use player's name for the filename
+    local filename = playerName  -- Sử dụng tên người chơi cho tên file
     
-    -- Ensure the folder exists
+    -- Đảm bảo rằng thư mục tồn tại
     if not isfolder(folder) then
         makefolder(folder)
     end
     
     wait(0.3)
-    print("write cfig")
+    print("Writing config")
     writefile(folder .. "/" .. filename, HttpService:JSONEncode(config))
 else
     warn("URL not set. Configuration may not have been loaded.")
 end
 
 wait(0.5)
-print("loading script")
+print("Loading script")
